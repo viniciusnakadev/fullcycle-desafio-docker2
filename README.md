@@ -14,8 +14,8 @@ Suba tudo em um repositório e faça a entrega.
 * A linguagem de programação para este desafio é Node/JavaScript.
 
 
-Passo-a-Passo
-
+**Passo-a-Passo
+**
  - Clonar o projeto e rodar o docker-compose.yaml;
  - Acessar localhost:8080/create?name=QUALQUER_NOME para add um registro na tabela people;
  - Ao acessar localhost:8080 exibirá o título descrito acima e a lista de nomes da tabela people.
