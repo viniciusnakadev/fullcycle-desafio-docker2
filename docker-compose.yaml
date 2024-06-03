@@ -3,8 +3,6 @@ services:
   app:
     build:
       context: ./node
-    #  dockerfile: Dockerfile
-    #image: viniciusnakadev/node
     depends_on:
         db:
           condition: service_healthy
@@ -16,14 +14,7 @@ services:
       MYSQL_DATABASE: nodedb
     networks:
       - node-network
-    #volumes:
-    #  - ./node:/usr/src/app
     tty: true
-    #healthcheck:
-    #  test: ["CMD", "curl", "f", http://localhost:3000"]
-    #  interval: 10s
-    #  timeout: 5s
-    #  retries: 3
 
 ####################################
 
@@ -51,9 +42,6 @@ services:
 ####################################
 
   nginx:
-    #build:
-    #  context: ./nginx
-      #dockerfile: Dockerfile
     image: nginx:latest
     container_name: nginx
     tty: true
@@ -63,10 +51,10 @@ services:
       - "8080:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf    
-    #restart: always
+    restart: always
     depends_on:
       - app
-    #     condition: service_healthy
+        
 
 ####################################
 
