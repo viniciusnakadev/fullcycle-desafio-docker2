@@ -9,8 +9,8 @@ services:
     container_name: node
     environment:
       MYSQL_HOST: db
-      MYSQL_USER: vinicius
-      MYSQL_PASSWORD: viniciusnakadev
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
       MYSQL_DATABASE: nodedb
     networks:
       - node-network
