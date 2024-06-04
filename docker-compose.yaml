@@ -2,11 +2,13 @@ services:
 
   app:
     build:
-      context: ./node
+      context: ./node/app
     depends_on:
         db:
           condition: service_healthy
     container_name: node
+    volumes:
+      - ./node/app:/usr/src/app
     environment:
       MYSQL_HOST: db
       MYSQL_USER: root
@@ -15,6 +17,8 @@ services:
     networks:
       - node-network
     tty: true
+    ports:
+      - "3000:3000"
 
 ####################################
 
@@ -26,6 +30,7 @@ services:
     tty: true
     volumes:
       - ./mysql:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
