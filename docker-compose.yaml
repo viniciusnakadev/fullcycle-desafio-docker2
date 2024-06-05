@@ -9,6 +9,7 @@ services:
     container_name: node
     volumes:
       - ./node/app:/usr/src/app
+      - /usr/src/app/node_modules
     environment:
       MYSQL_HOST: db
       MYSQL_USER: root
